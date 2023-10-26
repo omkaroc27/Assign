@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Docket</title>
+  
+</head>
+<body>
+  <h1>Docket Form</h1>
+  <form action="/saveData" method="post">
+     
+    <label for="name">Name:</label>
+    <input type="name" name="name" required>
+    <br>
+    <br>
+    <label for="start_time">Start Time:</label>
+    <input type="Time" name="start_time" >
+    <br>
+    <br>
+    <label for="end_time">End Time:</label>
+    <input type="Time" name="end_time" >
+    <br>
+    <br>
+    <label for="hours_worked">No Of Hours Worked:</label>
+    <input type="number" name="hours_worked" >
+    <br>
+    <br>
+    <label for="rate_per_hours">Rate Per Hours </label>
+    <input type="number" name="rate_per_hours" >
+    <br>
+    <br>
+    <label for="PO_Number">Name:</label>
+    <select name="PO_Number">
+      <% if (data && data.length > 0) { %>
+          <% data.forEach(function(record) { %>
+              <option value="<%= record %>"><%= record %></option>
+          <% }); %>
+      <% } else { %>
+          <option value="">No options available</option>
+      <% } %>
+  </select>
+  <br>
+  <br>
+  <label for="Supplier">Supplier:</label>
+  <select name="Supplier" placeholder="Supplier">
+    <% Supplier.forEach(function(Supplier) { %>
+      <option value="<%= Supplier.Supplier %> "  ><%= Supplier.Supplier %></option>
+    <% }); %>
+  </select>
+
+  <br>
+  <br>
+    
+  
+    <button type="submit">Submit</button>
+   
+  </form>
+  <br>
+  <br>
+  <button type="submit" onclick="location.href = '/display' " >Show Data</button>
+</body>
+</html>

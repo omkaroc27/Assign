@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Docket Data</title>
+
+</head>
+<body>
+  <h1>Display Docket Data</h1>
+
+  <form action="/display" method="get">
+    <label for="nameFilter">Filter by Name:</label>
+    <input type="text" name="nameFilter" value="<%= nameFilter || '' %>">
+    <br>
+    <br>
+    <label for="supplierFilter">Filter by Supplier:</label>
+    <input type="text" name="supplierFilter" value="<%= supplierFilter || '' %>">
+    <br>
+    <br>
+    <label for="ponFilter">Filter by PO Number:</label>
+    <input type="text" name="ponFilter" value="<%= ponFilter || '' %>">
+    <br>
+
+    
+    <br>
+    <button type="submit">Apply Filters</button>
+  </form>
+ <br>
+ <br>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Supplier</th>
+      <th>PO Number</th>
+    </tr>
+    <% records.forEach(function(record) { %>
+      <tr>
+        <td><%= record.name %></td>
+        <td><%= record.Supplier %></td>
+        <td><%= record.PO_Number %></td>
+      </tr>
+    <% }); %>
+  </table>
+  <a href="/form">Insert Data</a>
+</body>
+</html>
